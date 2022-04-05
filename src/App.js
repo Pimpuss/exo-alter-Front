@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
+
+import ListeContextProvider from "./context/ListeContext";
+import Supression from "./components/Supression";
 
 function App() {
+  let location = useLocation();
+  let backgroundLocation = location.state && location.state.backgroundLocation;
+
+  const [deleteData, setDeleteData] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ListeContextProvider>
+        <Header />
+        <Routes location={backgroundLocation || location}>
+          <Route path="/" element={<Home setDeleteData={setDeleteData} />} />
+        </Routes>
+        <Footer />
+        {backgroundLocation && (
+          <Routes>
+            <Route
+              path="/delet"
+              element={
+                <Supression deleteData={deleteData} action={"supprimer"} />
+              }
+            />
+            <Route
+              path="/edit"
+              element={<Supression deleteData={deleteData} action={"editer"} />}
+            />
+          </Routes>
+        )}
+      </ListeContextProvider>
     </div>
   );
 }

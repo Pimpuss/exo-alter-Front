@@ -1,0 +1,58 @@
+.homeContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.homeContainer h2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: var(--clr-rose);
+}
+
+.addContainers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 36%;
+    margin-bottom: 6rem;
+}
+
+.addContainers p {
+    font-size: 1.2rem;
+}
+
+.inputName {
+    border: solid 1px var(--clr-gris);
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 40px;
+}
+
+.submitName {
+    width: 10rem;
+    background: var(--clr-rose);
+    color: var(--clr-blanc);
+    border-radius: 40px;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.MuiDataGrid-columnHeader {
+    background-color: var(--clr-gris);
+    color: var(--clr-blanc);
+  }
+
+  .actionIcon2 {
+    width: 12rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+  }
